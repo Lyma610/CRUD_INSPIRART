@@ -6,20 +6,22 @@ import jakarta.persistence.GenerationType;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "salvar")
+@Table(name = "Salvar")
 public class Salvar {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_salvar")
     private Long idSalvar;
 
     @ManyToOne
     @JoinColumn(name = "id_postagem")
-    private Postagem postagem;
+    private Postagens postagem;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
+    @Column(name = "data_salvar")
     private LocalDateTime dataSalvar = LocalDateTime.now();
 
     // Getters e Setters
@@ -33,11 +35,11 @@ public class Salvar {
         this.idSalvar = idSalvar;
     }
 
-    public Postagem getPostagem() {
+    public Postagens getPostagem() {
         return postagem;
     }
 
-    public void setPostagem(Postagem postagem) {
+    public void setPostagem(Postagens postagem) {
         this.postagem = postagem;
     }
 

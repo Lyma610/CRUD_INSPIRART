@@ -1,6 +1,6 @@
 package com.example.TCC.service;
 
-import com.example.TCC.model.Postagem;
+import com.example.TCC.model.Postagens;
 import com.example.TCC.repository.PostagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,15 +12,15 @@ public class PostagemService {
     @Autowired
     private PostagemRepository postagemRepository;
 
-    public List<Postagem> listarPostagens() {
+    public List<Postagens> listarPostagens() {
         return postagemRepository.findAll();
     }
 
-    public Postagem salvarPostagem(Postagem postagem) {
+    public Postagens salvarPostagem(Postagens postagem) {
         return postagemRepository.save(postagem);
     }
 
-    public Postagem buscarPostagem(Long id) {
+    public Postagens buscarPostagem(Long id) {
         return postagemRepository.findById(id).orElse(null);
     }
 

@@ -1,10 +1,6 @@
 package com.example.TCC.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -13,21 +9,33 @@ import java.time.LocalDateTime;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUsuario;
+    @Column(name = "id_usuario")
+    private Long id_usuario;
 
+    @Column(name = "nome")
     private String nome;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "senha")
     private String senha;
+
+    @Column(name = "data_criacao")
     private LocalDateTime dataCriacao = LocalDateTime.now();
+
+    @Column(name = "bio")
     private String bio;
+
+    @Column(name = "foto_perfil")
     private String fotoPerfil;
 
     public Long getIdUsuario() {
-        return idUsuario;
+        return id_usuario;
     }
 
     public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
+        this.id_usuario = idUsuario;
     }
 
     public String getNome() {

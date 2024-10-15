@@ -6,29 +6,29 @@ import jakarta.persistence.GenerationType;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "postagem")
-public class Postagem {
+@Table(name = "Postagens")
+public class Postagens {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPostagem;
+    private Long id_postagem;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
     private String conteudo;
-    private LocalDateTime dataPostagem = LocalDateTime.now();
+    private LocalDateTime data_postagem = LocalDateTime.now();
     private String imagem;
 
     // Getters e Setters
 
 
     public Long getIdPostagem() {
-        return idPostagem;
+        return id_postagem;
     }
 
     public void setIdPostagem(Long idPostagem) {
-        this.idPostagem = idPostagem;
+        this.id_postagem = idPostagem;
     }
 
     public Usuario getUsuario() {
@@ -48,11 +48,11 @@ public class Postagem {
     }
 
     public LocalDateTime getDataPostagem() {
-        return dataPostagem;
+        return data_postagem;
     }
 
     public void setDataPostagem(LocalDateTime dataPostagem) {
-        this.dataPostagem = dataPostagem;
+        this.data_postagem = dataPostagem;
     }
 
     public String getImagem() {

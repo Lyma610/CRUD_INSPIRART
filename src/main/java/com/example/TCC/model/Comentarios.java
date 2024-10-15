@@ -6,21 +6,26 @@ import jakarta.persistence.GenerationType;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "comentario")
-public class Comentario {
+@Table(name = "Comentarios")
+public class Comentarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = "id_comentario")
     private Long idComentario;
 
     @ManyToOne
     @JoinColumn(name = "id_postagem")
-    private Postagem postagem;
+    private Postagens postagem;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
+    @Column(name = "conteudo")
     private String conteudo;
+
+    @Column(name = "data_comentario")
     private LocalDateTime dataComentario = LocalDateTime.now();
 
     // Getters e Setters
@@ -34,11 +39,11 @@ public class Comentario {
         this.idComentario = idComentario;
     }
 
-    public Postagem getPostagem() {
+    public Postagens getPostagem() {
         return postagem;
     }
 
-    public void setPostagem(Postagem postagem) {
+    public void setPostagem(Postagens postagem) {
         this.postagem = postagem;
     }
 
