@@ -15,7 +15,7 @@ public class Curtidas {
 
     @ManyToOne
     @JoinColumn(name = "id_postagem")
-    private Postagens postagem;
+    private Postagem postagem;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
@@ -35,11 +35,11 @@ public class Curtidas {
         this.idCurtida = idCurtida;
     }
 
-    public Postagens getPostagem() {
+    public Postagem getPostagem() {
         return postagem;
     }
 
-    public void setPostagem(Postagens postagem) {
+    public void setPostagem(Postagem postagem) {
         this.postagem = postagem;
     }
 

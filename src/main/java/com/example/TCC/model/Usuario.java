@@ -2,15 +2,13 @@ package com.example.TCC.model;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-
 @Entity
-@Table(name = "usuario")
+@Table(name = "Usuario")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_usuario")
-    private Long id_usuario;
+    private Long idUsuario;
 
     @Column(name = "nome")
     private String nome;
@@ -21,21 +19,20 @@ public class Usuario {
     @Column(name = "senha")
     private String senha;
 
-    @Column(name = "data_criacao")
-    private LocalDateTime dataCriacao = LocalDateTime.now();
-
     @Column(name = "bio")
-    private String bio;
+    private String bio; // Campo bio adicionado
 
-    @Column(name = "foto_perfil")
-    private String fotoPerfil;
+    // Construtor padrão
+    public Usuario() {
+    }
 
+    // Getters e Setters
     public Long getIdUsuario() {
-        return id_usuario;
+        return idUsuario;
     }
 
     public void setIdUsuario(Long idUsuario) {
-        this.id_usuario = idUsuario;
+        this.idUsuario = idUsuario;
     }
 
     public String getNome() {
@@ -62,27 +59,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public LocalDateTime getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(LocalDateTime dataCriacao) {
-        this.dataCriacao = dataCriacao;
-    }
-
     public String getBio() {
-        return bio;
+        return bio; // Getter para bio
     }
 
     public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    public String getFotoPerfil() {
-        return fotoPerfil;
-    }
-
-    public void setFotoPerfil(String fotoPerfil) {
-        this.fotoPerfil = fotoPerfil;
+        this.bio = bio; // Setter para bio
     }
 }
